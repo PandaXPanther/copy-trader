@@ -1,0 +1,17 @@
+[Unit]
+Description=Hyperliquid wallet scorer
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=/opt/copy-trader
+Environment="PYTHONUNBUFFERED=1"
+ExecStart=/opt/copy-trader/.venv/bin/python -m scorer.run
+Restart=always
+RestartSec=10
+StandardOutput=append:/opt/copy-trader/logs/scorer.stdout.log
+StandardError=append:/opt/copy-trader/logs/scorer.stderr.log
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,17 @@
+[Unit]
+Description=Hyperliquid paper copy trader
+After=network-online.target copytrader-scorer.service
+Wants=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=/opt/copy-trader
+Environment="PYTHONUNBUFFERED=1"
+ExecStart=/opt/copy-trader/.venv/bin/python -m paper.run
+Restart=always
+RestartSec=10
+StandardOutput=append:/opt/copy-trader/logs/paper.stdout.log
+StandardError=append:/opt/copy-trader/logs/paper.stderr.log
+
+[Install]
+WantedBy=multi-user.target

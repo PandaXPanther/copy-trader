@@ -1,0 +1,17 @@
+.env
+.venv/
+venv/
+__pycache__/
+*.pyc
+*.pyo
+.DS_Store
+logs/
+data/*.json
+data/*.jsonl
+data/*.db
+data/*.sqlite
+!data/.gitkeep
+!logs/.gitkeep
+*.log
+.vscode/
+.idea/

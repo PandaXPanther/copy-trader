@@ -1,0 +1,7 @@
+[Unit]
+Description=Daily paper-book summary
+
+[Service]
+Type=oneshot
+WorkingDirectory=/opt/copy-trader
+ExecStart=/opt/copy-trader/.venv/bin/python -m paper.summary
